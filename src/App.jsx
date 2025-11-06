@@ -1,28 +1,43 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import About from './components/About';
+import Products from './components/Products';
+import WhyChooseUs from './components/WhyChooseUs';
+import GalleryContact from './components/GalleryContact';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-neutral-950 text-neutral-100">
+      {/* Top nav */}
+      <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-neutral-950/70 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+          <a href="#home" className="flex items-center gap-2">
+            <div className="h-6 w-6 rounded-sm bg-gradient-to-br from-neutral-300 via-neutral-500 to-neutral-700" />
+            <span className="font-semibold tracking-tight">Qeuto Lifts</span>
+          </a>
+          <nav className="hidden items-center gap-6 text-sm text-neutral-300 sm:flex">
+            <a href="#about" className="hover:text-white">About</a>
+            <a href="#products" className="hover:text-white">Products</a>
+            <a href="#why" className="hover:text-white">Why Us</a>
+            <a href="#projects" className="hover:text-white">Projects</a>
+            <a href="#contact" className="rounded-md border border-yellow-400/30 bg-yellow-400 px-3 py-1.5 text-neutral-900">Get a Quote</a>
+          </nav>
         </div>
-      </div>
-    </div>
-  )
-}
+      </header>
 
-export default App
+      <main className="pt-14">
+        <Hero />
+        <About />
+        <Products />
+        <WhyChooseUs />
+        <GalleryContact />
+      </main>
+
+      <footer className="border-t border-white/10 bg-neutral-960 py-8 text-neutral-400">
+        <div className="mx-auto max-w-7xl px-6 text-sm">
+          <p>© {new Date().getFullYear()} Qeuto Lifts. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
